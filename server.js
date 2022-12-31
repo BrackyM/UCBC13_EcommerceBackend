@@ -1,5 +1,6 @@
 const express = require('express');
 const routes = require('./routes');
+const sequelize = require('./config/connection');
 // import sequelize connection
 
 const app = express();
@@ -15,4 +16,3 @@ sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
 
-const sequelize = require('./config/connection');
