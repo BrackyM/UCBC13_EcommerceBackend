@@ -22,7 +22,7 @@ Product.init(
     },
     price: {
       type: DataTypes.DECIMAL(10,2),
-      allowNull: true,
+      allowNull: false,
       validate: {
         isDecimal: true,
       }
@@ -33,16 +33,14 @@ Product.init(
       defaultValue: 10,
       validate: {
         isNumeric: true,
-      }
+      },
     },
     category_id: {
       type: DataTypes.INTEGER,
-      allowNull: true,
       references: {
         model: 'category',
         key: 'id',
-        unique: false
-      }
+      },
     },
   },
   {
@@ -51,7 +49,6 @@ Product.init(
     freezeTableName: true,
     underscored: true,
     modelName: 'product',
-  }
-);
+  });
 
 module.exports = Product;
